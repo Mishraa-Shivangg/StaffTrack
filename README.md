@@ -15,15 +15,6 @@
 
 - **View All Employees**: Fetch all employees from the database in a single click.
 
-## Screenshots
-
-![App Screenshot](C:\Users\Dell 1\Downloads\employee-management-mysql-master\StaffTrack\screenshots)
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/add_an_employee.png)
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/delete_an_employee.png)
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/delete_an_employee_2.png)
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/update_an_employee.png)
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/update_an_employee_2.png)
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/view_all_employee.png)
 
 ## Setup
 - Fork this repo
