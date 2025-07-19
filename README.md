@@ -17,7 +17,7 @@
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/home_screeen.png)
+![App Screenshot](C:\Users\Dell 1\Downloads\employee-management-mysql-master\StaffTrack\screenshots)
 ![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/add_an_employee.png)
 ![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/delete_an_employee.png)
 ![App Screenshot](https://github.com/Mishraa-Shivangg/StaffTrack/blob/master/screenshots/delete_an_employee_2.png)
