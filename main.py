@@ -92,8 +92,6 @@ def addScreen():
     salaryEntry.grid(row=3, column=1)
     departmentEntry.grid(row=3, column=2)
 
-
-
     for widget in employeeDetailsFrame.winfo_children():
         widget.grid_configure(padx=10, pady=5)
 
@@ -232,17 +230,6 @@ def updateScreen():
                 else:
                     for item in selectedEmployee:
                         itemValue = tree.item(item, 'values')
-                        ind = 0
-                        if usingOptValue == 'Id':
-                            ind = 0
-                        elif usingOptValue== 'Name':
-                            ind = 1
-                        elif usingOptValue == 'Birth Date':
-                            ind = 2
-                        elif usingOptValue == 'Joining Date':
-                            ind = 3
-                        else:
-                            ind = 4
                     for widget in window.winfo_children():
                         widget.destroy()
                     def enterData():
@@ -253,7 +240,14 @@ def updateScreen():
                         salary = salaryEntry.get()
                         department =  departmentEntry.get()
                         if firstname and lastname and birthDate and salary and joiningDate and department:
-                            sqlClient.updateEmployee(method=usingOptValue, value=itemValue, newValue=(itemValue[0], f'{firstname.capitalize()} {lastname.capitalize()}', birthDate, joiningDate, salary, department))
+                            sqlClient.updateEmployee(
+                                empId=itemValue[0],
+                                name=f'{firstname.capitalize()} {lastname.capitalize()}',
+                                dateOfBirth=birthDate,
+                                joiningDate=joiningDate,
+                                salary=salary,
+                                department=department
+                            )
                             messagebox.showwarning(title="Success", message="Updated Employee Details")
                             updateScreen()
                         else: 
@@ -278,11 +272,10 @@ def updateScreen():
                     departmentLabel = Label(employeeDetailsFrame, text="Department")
                     departmentLabel.grid(row=2, column=2)
 
-
                     firstNameEntry = Entry(employeeDetailsFrame)
                     firstNameEntry.insert(0,itemValue[1].split(" ")[0])
                     lastNameEntry = Entry(employeeDetailsFrame)
-                    lastNameEntry.insert(0,itemValue[1].split(" ")[1])
+                    lastNameEntry.insert(0,itemValue[1].split(" ")[1] if " " in itemValue[1] else "")
                     birthDateEntry = Entry(employeeDetailsFrame)
                     birthDateEntry.insert(0,itemValue[2])
                     joiningDateEntry = Entry(employeeDetailsFrame)
@@ -330,8 +323,8 @@ def updateScreen():
                 for row in employees:
                     tree.insert("", "end", values=row)
                 tree.grid(row= 4, column=0, padx=20, pady=10)
-                deleteButton = Button(nextDeleteFrame, text="SELECT", command=update)
-                deleteButton.grid(row= 5, column=0, padx=20, pady=10)
+                selectButton = Button(nextDeleteFrame, text="SELECT", command=update)
+                selectButton.grid(row= 5, column=0, padx=20, pady=10)
         usingOptValue = usingOpt.get()
         if usingOptValue == 'Find Employee Using':
             messagebox.showwarning(title="Error", message="Select an option first.")
