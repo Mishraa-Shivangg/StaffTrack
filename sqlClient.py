@@ -101,23 +101,15 @@ class mySqlClient:
             print(f"Error deleting employee: {err}")
             raise
 
-    def updateEmployee(self, updateField: str, method: str, value: str, newValue: str):
-        """Updates a specific field of an employee record."""
+    def updateEmployee(self, empId: int, name: str, dateOfBirth: str, joiningDate: str, salary: float, department: str):
+        """Updates all details of an employee based on ID."""
         try:
-            columnMap = {
-                'Id': 'id',
-                'Name': 'name',
-                'Birth Date': 'dateOfBirth',
-                'Joining Date': 'joiningDate',
-                'Salary': 'salary',
-                'Department': 'department'
-            }
-
-            if updateField not in columnMap or method not in columnMap:
-                raise ValueError("Invalid updateField or method.")
-
-            updateQuery = f"UPDATE employeedetails SET {columnMap[updateField]} = %s WHERE {columnMap[method]} = %s"
-            self.cursor.execute(updateQuery, (newValue, value))
+            updateQuery = """
+                UPDATE employeedetails
+                SET name=%s, dateOfBirth=%s, joiningDate=%s, salary=%s, department=%s
+                WHERE id=%s
+            """
+            self.cursor.execute(updateQuery, (name, dateOfBirth, joiningDate, salary, department, empId))
             self.sqlClient.commit()
             print("Employee updated successfully.")
         except mysql.connector.Error as err:
